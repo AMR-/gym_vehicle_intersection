@@ -8,13 +8,15 @@ It is a "Toy Text" environment.  It is highly configurable and difficult.
 
 Vehicle Intersection simulates a four-way vehicle intersection with stoplights.   Vehicles spawn at the edges of the map and approach the intersection at the center, drivin gon two-land roads.  Each approach to the intersection has a stoplight that can be red or green.  The agent controls these four traffic lights, and action involve turning the lights red or green.
 
-Vehicles move at a fixed speed when unimpeded.  If they are blocked by a vehicle in ront of them going in the same direction, they stop.  If they are blocked by a vevicle in front of them going in a different direction, there is a collision.  If a vehicle approaches the edge of the intersection and encounters a green light, it continues moving, if it approaches the edges of an intersection and encounters a red light, it stops and waits until the light is green, at which point it move forward.
+Vehicles move at a fixed speed when unimpeded.  If they are blocked by a vehicle in front of them going in the same direction, they stop.  If they are blocked by a vevicle in front of them going in a different direction, there is a collision.  If a vehicle approaches the edge of the intersection and encounters a green light, it continues moving, if it approaches the edges of an intersection and encounters a red light, it stops and waits until the light is green, at which point it move forward.
 
 Additionally, each vehicle has an attribute called a "turn signal" indicating whether it will turn, go left, or go right at the intersection.
 
 Each episode runs either until a configurable number of vehicles spawn and exit the intersection safely or until a collision occurs.
 
 The agent receives a penalty of -1 when a vehicle is forced to wait at a red light (per vehicle, per timestep). A vehicle stuck behind another vehicle waiting at a red light also incurs this penalty. The agent receives a penalty of -1000 when a collision occurs. An optimal episode has at most a reward of 0 (may not always be possible depending how vehicles spawn). The goal becomes to reduce waiting time for vehicles while also avoiding collisions
+
+![Image of VI Rendering](images/vi_eg1.png "VI Rendering Example")
 
 ## Action Space
 
@@ -30,7 +32,7 @@ When instantiated, each action set has a `describe()` method that gives a descri
 
 The observation space is represented by a `4+4*V` vector, where `V` is maximum the number of vehicles that are allowed to be on the map at a single time.
 
-The first four elements indicate which lights are red or green (red for 0, 1 for green) in the following order: Left, Up, Right, Down.
+The first four elements indicate which lights are red or green (0 for red, 1 for green) in the following order: Left, Up, Right, Down.
 
 Each set of the next four elements indicates a vehicle on the map.  The four elements in order are:
 1. Approach Road: 0-3 for Left, Upper, Right, Lower
@@ -38,7 +40,6 @@ Each set of the next four elements indicates a vehicle on the map.  The four ele
 1. Length of vehicle: the remaining length of a the vehicle.  Note that when a vehicle partially exits the intersection, it will be represented as a smaller vehicle about to exit.
 1. Turn Signal: -1 for left, 0 for straight, and 1 for right
 
-![Image of VI Rendering](images/vi_eg1.png "VI Rendering Example")
 
 ## Requirements
 
@@ -68,7 +69,6 @@ env.render()
 If you like, you can also specify certain settings in the environment.
 
 Some useful ones may be the action set, the maximum vehicles on the map, and the road length.
-                          max_vehicles_on_map=8,
 ```python
 from vi_env.VehicleIntersection import VehicleIntersection
 from vi_env.VehicleIntersectionActionSets import SetByLight
@@ -92,8 +92,7 @@ Included in this repository is the `disp_env.py` script, which runs the environm
 
 `VehicleIntersection()` can be instantiated with a number of parameters.  They are explained here.
 
-* **action_set**: which of the action sets to use (Tog-
-gleRoad(), ToggleLight(), SetByRoad(), SetByLight(), SetExplicitly()), default: ToggleRoad()
+* **action_set**: which of the action sets to use (ToggleRoad(), ToggleLight(), SetByRoad(), SetByLight(), SetExplicitly()), default: ToggleRoad()
 * **road_length**: length of the road before the intersection. (intersection length is 2.) default: 14
 * **use_turn_signals**: boolean. if False, cars only go straight.
 default: True
@@ -117,7 +116,7 @@ spawn per episode. affects episode length. default: 10
 * **lights_init**: starting configuration of the lights. The default
 is all green. default: `(1, 1, 1, 1)`
 * **waiting_penalty**: default: -1
-• **collision_penalty**: default: -1000
+* **collision_penalty**: default: -1000
 
 ## Credit
 
