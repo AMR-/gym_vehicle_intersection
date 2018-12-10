@@ -106,8 +106,7 @@ on the map, do not spawn additional vehicles until at least one exits the inters
 ("van", (6, 6)), ("truck", (8, 12))])`
 * **vehicle_dist**: Tuple of length equal to size of vehicle_types. Probability of each vehicle type spawning each time a vehicle is to spawn. default: `(0.4, 0.35, 0.25)`
 * **vehicle_colors**: OrderedDict of (string → string) pairs in-
-dicating what color each vehicle type should be in the rendering. default: `OrderedDict([("car", "yellow"), ("van", "ma-
-genta"), ("truck", "cyan")])`
+dicating what color each vehicle type should be in the rendering. default: `OrderedDict([("car", "yellow"), ("van", "magenta"), ("truck", "cyan")])`
 * **vehicle_speed**: the distance an unimpeded vehicle will move each timestep. default: 1
 * **spawn_interval**: 2-Tuple indicating minimum and maximum
 time to wait between spawning vehicles. default: `(2, 7)`
