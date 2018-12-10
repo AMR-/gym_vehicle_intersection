@@ -1,5 +1,6 @@
 # Vehicle Intersection
 # Created by Aaron M. Roth
+# https://github.com/AMR-/gym_vehicle_intersection
 # MIT License
 
 from .VehicleIntersectionSupport import VehicleIntersectionActionSet
