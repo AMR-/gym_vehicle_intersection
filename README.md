@@ -28,6 +28,8 @@ from vi_env.VehicleIntersectionActionSets import SetByRoad, SetByLight, ToggleRo
 
 When instantiated, each action set has a `describe()` method that gives a description (see **Example** section).  Actions are passed in to the step function as integers.
 
+See also a description of the action space at [ActionSpaces](ActionSpaces.md).
+
 ## Observation Space
 
 The observation space is represented by a `4+4*V` vector, where `V` is maximum the number of vehicles that are allowed to be on the map at a single time.
