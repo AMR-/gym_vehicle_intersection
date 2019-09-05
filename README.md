@@ -123,7 +123,16 @@ is all green. default: `(1, 1, 1, 1)`
 
 This projct was written by Aaron M. Roth.
 
-If you use it in an academic project or other context in which it would be appropriate to cite, please [contact me](https://www.ri.cmu.edu/ri-people/aaron-roth) for citing information.
+If you use it in an academic project or other context in which it would be appropriate to cite, please cite my Master's Thesis "Structured Representations for the Behavior of Autonomous Robots," bibtex as follows:
 
-
+    @mastersthesis{Roth-2019-117131,
+    author = {Aaron Roth},
+    title = {Structured Representations for Behaviors of Autonomous Robots},
+    year = {2019},
+    month = {July},
+    school = {Carnegie Mellon University},
+    address = {Pittsburgh, PA},
+    number = {CMU-RI-TR-19-50},
+    keywords = {Artificial Intelligence, Explainable Artificial Intelligence, Human Robot Interaction, Reinforcement Learning, Decision Trees, Robotics Frameworks, Instruction Graph, Learning by Instruction},
+    }
 
